@@ -27,3 +27,10 @@ In detail, the publisher was run twice, each time sending 5 `UserCreatedEventMes
 Each spike on the "Message rates" chart corresponds to one run of the publisher. When `cargo run` is executed on the publisher, it instantly sends 5 messages to the RabbitMQ broker, causing a brief surge, visible as a spike. Once all 5 messages are delivered, the publisher exits and the rate immediately drops back to 0. 
 
 The chart shows 2 spikes, meaning the publisher was run 2 times. This confirms that the spike is a direct reflection of the publisher's activity. The more frequently it is run, the more spikes are visible on the chart.
+
+# Bonus
+
+## Sending and Processing Event
+![SPE Bonus](assets/images/SPE_Bonus.png)
+![SPE Publisher Bonus](assets/images/SPE_Pub_Bonus.png)
+![SPE Subscriber Bonus](assets/images/SPE_Sub_Bonus.png)
