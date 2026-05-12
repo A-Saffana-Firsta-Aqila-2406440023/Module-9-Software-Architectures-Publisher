@@ -28,9 +28,17 @@ Each spike on the "Message rates" chart corresponds to one run of the publisher.
 
 The chart shows 2 spikes, meaning the publisher was run 2 times. This confirms that the spike is a direct reflection of the publisher's activity. The more frequently it is run, the more spikes are visible on the chart.
 
-# Bonus
+# Bonus: Running on Cloud Using CloudAMQP
+CloudAMQP is a managed RabbitMQ service hosted on the cloud, meaning there is no need to run Docker or set up a local broker. The message broker is accessible over the internet via a secured `amqps://` (SSL/TLS) connection. The only change made from the localhost version is replacing the broker URL from `amqp://guest:guest@localhost:5672` to a CloudAMQP-hosted URL.
 
-## Sending and Processing Event
+## [Bonus] Sending and Processing Event
 ![SPE Bonus](assets/images/SPE_Bonus.png)
 ![SPE Publisher Bonus](assets/images/SPE_Pub_Bonus.png)
 ![SPE Subscriber Bonus](assets/images/SPE_Sub_Bonus.png)
+
+The behavior is identical to the localhost version, where the publisher sends messages to the broker, and the subscriber consumes them. This proves that the event-driven communication works seamlessly even when the broker is hosted remotely on the cloud.
+
+## [Bonus] Monitoring Chart Based on Publisher
+![MC Bonus](assets/images/MC_Bonus.png)
+
+The spike behavior is the same as the localhost version. Each publisher run causes a brief surge in the "Message rates" chart. This proves that the cloud broker correctly receives and tracks message activity in real-time, just like a local setup.
