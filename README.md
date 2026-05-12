@@ -7,4 +7,12 @@ The publisher sends **5 messages** to the message broker in one run. Each messag
 Both the publisher and subscriber using the same URL means they are **connecting to the same RabbitMQ message broker** running on the same machine, which is the foundation of an event-driven architecture. This shared broker is what ties them together. Without it, messages would never be delivered between the two services. However, their roles are different: the publisher only pushes events into the queue, while the subscriber only consumes and processes those events.
 
 ## Running RabbitMQ as Message Broker
-![Running_RabbitMQ](assets/images/Running_RabbitMQ.png)
+![Running RabbitMQ](assets/images/Running_RabbitMQ.png)
+
+## Sending and Processing Event
+![Sending and Processing Event Pub](assets/images/Sending_Processing_Event_Pub.png)
+![Sending and Processing Event Sub](assets/images/Sending_Processing_Event_Sub.png)
+
+**What is happening?**: When the publisher is run, it sends 5 messages to the RabbitMQ message broker. When the subscriber is run, it connects to the same broker and consumes all the queued messages, printing each received message to the terminal. 
+
+In detail, the publisher was run twice, each time sending 5 `UserCreatedEventMessage` events to the RabbitMQ message broker through the `user_created` queue, resulting in a total of 10 messages stored in the broker. When the subscriber was started, it connected to the same broker via the same `amqp://guest:guest@localhost:5672` URL and consumed all 10 queued messages at once, printing each one as `"In Saffana Firsta Aqila's Computer. Message received: ..."`.
